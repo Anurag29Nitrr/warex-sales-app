@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+  <script>
+    const socket = io('http://localhost:3000', {
+      auth: { token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2N2MzNmUzNTFjZDg2NTFkMGJiOGU5ODEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3NDA4NjE1Mzd9.SR5Pp14A1o0Mf7PX2_rMG_9ZiYpXhXamcBDJSEe49AA' }  // Replace with admin token
+    });
+    socket.on('connect', () => console.log('Connected as admin'));
+    socket.on('new_order', (data) => console.log('New Order:', data));
+    socket.on('connect_error', (err) => console.log('Error:', err.message));
+  </script>
+</body>
+</html>
